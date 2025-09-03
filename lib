@@ -1,0 +1,59 @@
+// lib/data.js
+export const brands = [
+  {
+    slug: "pyzel",
+    name: "Pyzel Surfboards",
+    hero: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200",
+    about: "High-performance surfboards trusted worldwide. From the Ghost to the Phantom, Pyzel delivers speed and control.",
+    models: ["Ghost", "Phantom", "Gremlin", "Shadow", "Voyager 1"],
+    listings: [
+      { image: "https://images.unsplash.com/photo-1523983303491-6c29040f8691?q=80&w=1200", title: "Pyzel Ghost 6'2\"", meta: "Used • Good • Los Angeles, CA", price: 550 },
+      { image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200", title: "Pyzel Phantom 5'10\"", meta: "New • Epoxy • San Diego, CA", price: 795 }
+    ]
+  },
+  {
+    slug: "firewire",
+    name: "Firewire Surfboards",
+    hero: "https://images.unsplash.com/photo-1516569422865-0b531096a6a5?q=80&w=1200",
+    about: "Eco-minded construction and modern designs like the Seaside and Dominator.",
+    models: ["Seaside", "Dominator", "Sunday", "Greedy Beaver", "Sci-Fi"],
+    listings: [
+      { image: "https://images.unsplash.com/photo-1502210748380-5e3a8840e3ce?q=80&w=1200", title: "Firewire Seaside 5'6\"", meta: "Used • Great • Santa Cruz, CA", price: 620 }
+    ]
+  },
+];
+
+export const shapers = [
+  {
+    slug: "kevin-handshapes",
+    name: "Kevin Handshapes",
+    hero: "https://images.unsplash.com/photo-1515894203077-9cd6a0bcaeaf?q=80&w=1200",
+    bio: "Small-batch boards shaped in San Diego. Fish & mid-length specials.",
+    city: "San Diego", state: "CA",
+    listings: [
+      { image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1200", title: "Twin Fish 5'8\"", meta: "New • Epoxy • Local pickup", price: 480 },
+      { image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=1200", title: "Mid-length 7'0\"", meta: "New • PU • Ships 3–5 days", price: 690 }
+    ]
+  },
+  {
+    slug: "moana-boards",
+    name: "Moana Boards",
+    hero: "https://images.unsplash.com/photo-1465479423260-c4afc24172c6?q=80&w=1200",
+    bio: "Hawaiian-inspired shapes tuned for everyday waves.",
+    city: "Honolulu", state: "HI",
+    listings: [
+      { image: "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?q=80&w=1200", title: "Funboard 7'2\"", meta: "Used • Good • Local pickup", price: 350 }
+    ]
+  }
+];
+// lib/plan.js
+export function planCap(plan) {
+  if (plan === "pro") return Infinity;   // unlimited
+  if (plan === "starter") return 5;      // up to 5 boards
+  return 2;                              // basic free: 1–2 boards
+}
+
+export function canPublishNewListing(user) {
+  const cap = planCap(user.plan);
+  return user.activeListings < cap;
+}
