@@ -1,0 +1,31 @@
+// app/layout.js
+export const metadata = {
+  title: "NicheMarket",
+  description: "Surfboard marketplace",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body style={{ margin: 0, fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif", color: "#111", background: "#fafafa" }}>
+        <nav style={{ background: "#fff", borderBottom: "1px solid #eee" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto", padding: "14px" }}>
+            <a href="/">🏄 NicheMarket</a>
+            <span style={{ margin: "0 10px" }}>•</span>
+            <a href="/brands">Brands</a>
+            <span style={{ margin: "0 10px" }}>•</span>
+            <a href="/independent-shapers">Independent Shapers</a>
+            <span style={{ margin: "0 10px" }}>•</span>
+            <a href="/shaper-plans">Shaper Plans</a>
+          </div>
+        </nav>
+        <main style={{ maxWidth: 1100, margin: "0 auto", padding: 14 }}>{children}</main>
+        <footer style={{ borderTop: "1px solid #eee", background: "#fff", marginTop: 30 }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto", padding: 14 }}>
+            <small>© NicheMarket • Buyer Protection • Contact</small>
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
